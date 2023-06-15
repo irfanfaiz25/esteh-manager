@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="226" pageHeight="425" columnWidth="212" leftMargin="7" rightMargin="7" topMargin="7" bottomMargin="7" uuid="bad866d1-94df-4e9c-9e2a-7acab7c82834">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT p.id_trans, p.kode, p.nama_menu, p.harga, p.jumlah, p.subtotal, p.total, p.bayar, p.kembalian, u.nama FROM pembelian p JOIN keranjang k ON p.id_trans = k.id_trans JOIN user_log u ON p.id_kasir = u.id_login]]>
+	</queryString>
+	<field name="id_trans" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="kode" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nama_menu" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="harga" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="jumlah" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="subtotal" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="total" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="bayar" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="kembalian" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nama" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="113" splitType="Stretch">
+			<staticText>
+				<reportElement x="11" y="27" width="190" height="16" uuid="37013d70-79d4-4249-b452-66b4d9cb7e6d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<text><![CDATA[Jln.Dahlia Wangkah Gedangan,RT 02/RW 02]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="21" y="0" width="168" height="27" uuid="b18ec513-c75f-48b4-80b2-8d10c60840f5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ES TEH KAMPUL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="43" width="212" height="17" uuid="2abb08a8-c926-425e-8911-fc34b5af7774"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14"/>
+				</textElement>
+				<text><![CDATA[-----------------------------------------------------------------------------------------]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="0" y="60" width="90" height="18" uuid="6cdcc4d6-25ee-4590-8084-7b0a48cd6724"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Cascadia Code" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField pattern="HH.mm.ss">
+				<reportElement x="0" y="78" width="90" height="18" uuid="057b1652-7196-420d-8504-262467d8c19d"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Cascadia Code" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="96" width="212" height="17" uuid="bb7762fc-ecd7-42ee-ab54-ce5b24fdf219"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14"/>
+				</textElement>
+				<text><![CDATA[-----------------------------------------------------------------------------------------]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="106" y="79" width="106" height="17" uuid="74d027a2-afbb-43f2-9a28-657e12f7db03"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Cascadia Code" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nama}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="106" y="60" width="106" height="17" uuid="e2de7d88-b74e-48ec-ac23-cbca6c7f3114"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Cascadia Code" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Kasir]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="38" splitType="Stretch">
+			<textField>
+				<reportElement x="21" y="0" width="191" height="18" uuid="b64987e0-13bc-47e0-80bc-95efd1b6252f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Cascadia Code" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nama_menu}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="156" y="18" width="56" height="17" uuid="4ff97d46-86f8-4287-86df-316f31f39192"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Cascadia Code" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{subtotal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="41" y="18" width="65" height="17" uuid="2f57f250-4ddf-4c16-ae0d-cf95419fe0b3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Cascadia Code" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{harga}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="18" width="21" height="17" uuid="f39055d7-2f60-44ba-a2e0-600f2dbdb219"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Cascadia Code" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{jumlah}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="21" y="18" width="20" height="17" uuid="145d7d92-d72e-4cd0-bb42-dffc9f7ae9c5"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[x]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="1" width="21" height="17" uuid="3be2a90c-9905-4380-a20b-21ad179eb5e8"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Cascadia Code" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{id_trans}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="135" y="18" width="21" height="17" uuid="c35fc70d-09a8-4f30-a0c4-73a3ac6aa845"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Cascadia Code" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Rp.]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="143" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="212" height="17" uuid="4347b730-6e85-4f50-973e-ce6b9b77b762"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14"/>
+				</textElement>
+				<text><![CDATA[-----------------------------------------------------------------------------------------]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="156" y="17" width="56" height="18" uuid="4ee5a681-dcbb-4315-a438-ceed6687b214"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Cascadia Code" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="156" y="35" width="56" height="18" uuid="a9f35934-369c-4969-bf9e-1a6a26c3da92"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Cascadia Code" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="17" width="80" height="18" uuid="ce6af589-78c9-4ae6-82f3-8ec6d7d24216"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Cascadia Code"/>
+				</textElement>
+				<text><![CDATA[Sub Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="35" width="80" height="18" uuid="b828fd5a-1765-43bc-8868-4362423726bc"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Cascadia Code"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="53" width="80" height="18" uuid="563c0521-7b83-4924-aa4d-af0c81d7d48f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Cascadia Code"/>
+				</textElement>
+				<text><![CDATA[Bayar (cash)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="156" y="53" width="56" height="18" uuid="324b9b9f-4e04-4bdb-a13e-5157970d7c30"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Cascadia Code" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bayar}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="71" width="80" height="18" uuid="a10a860f-c7dd-471e-9d27-c49ec8d61923"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Cascadia Code"/>
+				</textElement>
+				<text><![CDATA[Kembali]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="156" y="71" width="56" height="18" uuid="b09abe62-344c-4d51-8942-3eba6b7cb862"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Cascadia Code" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{kembalian}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="11" y="100" width="190" height="16" uuid="25b71824-085f-4e11-b99a-cb6245287b9a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Cascadia Code"/>
+				</textElement>
+				<text><![CDATA[Kritik dan Saran]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="116" width="190" height="16" uuid="01f5ca44-e212-4984-9da3-ef9295a26116"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Cascadia Code"/>
+				</textElement>
+				<text><![CDATA[087634923479]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="135" y="18" width="21" height="17" uuid="fb5e19c5-5f8a-4547-919c-69c8e841d5b6"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Cascadia Code" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Rp.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="135" y="36" width="21" height="17" uuid="6004b52e-d2f9-40e2-9713-ed9985aff283"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Cascadia Code" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Rp.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="135" y="53" width="21" height="17" uuid="0914ce21-def6-4df3-bbcc-f088849de84c"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Cascadia Code" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Rp.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="135" y="72" width="21" height="17" uuid="dbfd218a-9731-4072-bdbb-e43d543bd5ee"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Cascadia Code" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Rp.]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
